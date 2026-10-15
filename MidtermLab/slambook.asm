@@ -1,5 +1,5 @@
-%define N       21              ; number of fields
-%define BUFSZ   128             ; bytes per answer (127 chars + NUL)
+%define N       21              
+%define BUFSZ   128             
 
 %define C_PINK  27,"[1;35m"
 %define C_YEL   27,"[1;33m"
@@ -120,7 +120,7 @@ bye_art:
     db "            `",10
     db C_RST,10,0
 
-; ---------------- Prompts ----------------
+;  Prompts ----------------
 
 p_name:     db C_RST,"  Name: ",0
 p_email:    db "  Email: ",0
@@ -147,7 +147,7 @@ p_motto:    db "  Motto: ",0
 ans_on:     db C_CYAN,0
 ans_off:    db C_RST,10,0
 
-; ---------------- Field table: [banner or 0, prompt] ----------------
+;  Field table: [banner or 0, prompt] ----------------
 
 align 4
 fields:
@@ -250,9 +250,7 @@ _start:
     xor ebx, ebx
     int 0x80
 
-; ----------------------------------------------------------
-; puts: print NUL-terminated string at ecx to stdout
-; ----------------------------------------------------------
+
 puts:
     push ebx
     xor edx, edx
@@ -268,10 +266,7 @@ puts:
     pop ebx
     ret
 
-; ----------------------------------------------------------
-; read_line: read a line from stdin into buffer at ecx
-;            strips newline, NUL-terminates, discards overflow
-; ----------------------------------------------------------
+
 read_line:
     push ebx
     push ecx
