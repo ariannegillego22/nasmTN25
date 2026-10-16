@@ -1,6 +1,4 @@
-;=========================================
 ; Problem 2 - Student Year Level Classification
-;=========================================
 
 section .data
 
